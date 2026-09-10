@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Den endeløse landevei – terningspill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav-link">Hjem</a>
+    <a href="../tallmal/index.html" class="site-nav-link">Tallmål</a>
+    <a href="../finn-feilen/index.html" class="site-nav-link">Finn feilen</a>
+    <a href="../brok-prosent/index.html" class="site-nav-link">Brøk/prosent</a>
+    <a href="../endelos-landevei/index.html" class="site-nav-link active">Landeveien</a>
+  </nav>
+
+  <header class="site-head">
+    <h1>Den endeløse landevei</h1>
+    <p class="tagline">Kast fem terninger. Finn veien til de neste tallene med regneartene og potenser.</p>
+  </header>
+
+  <main class="board" id="board">
+
+    <section class="puzzle">
+
+      <div class="terning-rad" id="terningRad" aria-live="polite" aria-label="Terningkast"></div>
+
+      <p class="terning-tekst" id="terningTekst"></p>
+
+      <div class="controls">
+        <button class="ctrl-btn ctrl-btn--primary" id="kastBtn" type="button">Kast terningene</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <p class="colophon">Egenutviklet terningspill inspirert av «Den endeløse landevei» – del av mattelek-systemet. Steg 1: kast terningene. Løsningsforslag kommer i steg 2.</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

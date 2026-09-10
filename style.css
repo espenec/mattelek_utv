@@ -1,0 +1,138 @@
+/* ---------------------------------------------------
+   Design tokens (samme som resten av mattelek-systemet)
+--------------------------------------------------- */
+:root {
+  --paper: #F1F5F2;
+  --paper-line: #C9D6D3;
+  --ink: #16323A;
+  --ink-soft: #4C6A6E;
+  --red: #D64550;
+  --red-soft: #F3D3D2;
+  --gold: #E7A93E;
+  --gold-soft: #FBE8C4;
+  --white: #FFFFFF;
+
+  --font-display: "Fraunces", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --radius-s: 6px;
+  --radius-m: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-mono);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 60px;
+}
+
+.page {
+  width: 100%;
+  max-width: 720px;
+}
+
+/* ---------------------------------------------------
+   Header
+--------------------------------------------------- */
+.site-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.site-head h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 6px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------
+   Prosjektkort
+--------------------------------------------------- */
+.prosjekt-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.prosjekt-kort {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  padding: 22px 20px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.prosjekt-kort:hover {
+  background: var(--gold-soft);
+  transform: translateY(-3px);
+}
+
+.prosjekt-navn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.prosjekt-beskrivelse {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.prosjekt-lenke {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--red);
+}
+
+@media (max-width: 560px) {
+  .prosjekt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------
+   Colophon
+--------------------------------------------------- */
+.colophon {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 30px;
+}
+
+/* Focus visibility */
+a:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}

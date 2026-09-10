@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finn feilen – et tallforståelsesspill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav-link">Hjem</a>
+    <a href="../tallmal/index.html" class="site-nav-link">Tallmål</a>
+    <a href="../finn-feilen/index.html" class="site-nav-link active">Finn feilen</a>
+    <a href="../brok-prosent/index.html" class="site-nav-link">Brøk/prosent</a>
+    <a href="../endelos-landevei/index.html" class="site-nav-link">Landeveien</a>
+  </nav>
+
+  <header class="site-head">
+    <h1>Finn feilen</h1>
+    <p class="tagline">Én presentasjonsform er feil. Én påstand er feil. Finn dem begge.</p>
+  </header>
+
+  <main class="board" id="board">
+
+    <div class="board-head">
+      <nav class="tabs" id="tabs" aria-label="Velg oppgave"></nav>
+      <button class="level-switch" id="newSetBtn" type="button">Nytt sett</button>
+    </div>
+
+    <section class="puzzle" id="puzzle">
+
+      <div class="number-wrap">
+        <div class="number-ring" id="numberRing">
+          <span class="number-label">TALLET</span>
+          <span class="number-value" id="numberValue">–</span>
+        </div>
+      </div>
+
+      <h2 class="section-title">Presentasjonsformer <span class="section-hint">– én av disse er feil</span></h2>
+      <div class="repr-grid" id="reprGrid"></div>
+
+      <h2 class="section-title">Påstander <span class="section-hint">– én av disse er feil</span></h2>
+      <div class="repr-grid" id="claimList"></div>
+
+      <p class="message" id="message" role="status" aria-live="polite">Klikk på formen og påstanden du tror er feil, og trykk «Sjekk svar».</p>
+
+      <div class="controls">
+        <button class="ctrl-btn" id="retryBtn" hidden>Prøv igjen</button>
+        <button class="ctrl-btn ctrl-btn--primary" id="checkBtn" disabled>Sjekk svar</button>
+      </div>
+
+    </section>
+
+    <footer class="scoreboard">
+      <span class="scoreboard-label">Poengsum:</span>
+      <span class="scoreboard-stars" id="totalStars">☆☆☆☆☆☆☆☆☆☆</span>
+      <span class="scoreboard-count" id="totalCount">0 / 5</span>
+    </footer>
+
+  </main>
+
+  <p class="colophon">Egenutviklet øvingsspill i tallforståelse – del av mattelek-systemet.</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

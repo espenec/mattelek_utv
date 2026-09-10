@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tallmål – et regnespill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav-link">Hjem</a>
+    <a href="../tallmal/index.html" class="site-nav-link active">Tallmål</a>
+    <a href="../finn-feilen/index.html" class="site-nav-link">Finn feilen</a>
+    <a href="../brok-prosent/index.html" class="site-nav-link">Brøk/prosent</a>
+    <a href="../endelos-landevei/index.html" class="site-nav-link">Landeveien</a>
+  </nav>
+
+  <header class="site-head">
+    <h1>Tallmål</h1>
+    <p class="tagline">Bruk tallene. Treff målet.</p>
+  </header>
+
+  <section class="level-select" id="levelSelect" aria-label="Velg nivå">
+    <p class="level-intro">Velg et nivå for å starte runden med 5 oppgaver.</p>
+    <div class="level-grid">
+      <button class="level-card" data-niva="enkel">
+        <span class="level-name">Enkel</span>
+        <span class="level-desc">Tall mellom 0 og 100. Bare pluss og minus. En fin start for å bli kjent med spillet.</span>
+      </button>
+      <button class="level-card" data-niva="middels">
+        <span class="level-name">Middels</span>
+        <span class="level-desc">Tall mellom 1 og 20. Alle fire regneartene. Måltall opp mot 1000.</span>
+      </button>
+      <button class="level-card" data-niva="vanskelig">
+        <span class="level-name">Vanskelig</span>
+        <span class="level-desc">Tall mellom 1 og 100. Alle fire regneartene og høyere måltall. Krever gjerne flere utregninger.</span>
+      </button>
+    </div>
+  </section>
+
+  <main class="board" id="board" hidden>
+
+    <div class="board-head">
+      <nav class="tabs" id="tabs" aria-label="Velg oppgave"></nav>
+      <button class="level-switch" id="changeLevelBtn" type="button">Bytt nivå</button>
+    </div>
+
+    <section class="puzzle" id="puzzle">
+
+      <div class="target-wrap">
+        <div class="target-ring" id="targetRing">
+          <span class="target-label">MÅLTALL</span>
+          <span class="target-number" id="targetNumber">–</span>
+        </div>
+        <div class="closest-hint" id="closestHint"></div>
+      </div>
+
+      <div class="tiles" id="tiles" aria-label="Tilgjengelige tall"></div>
+
+      <div class="operators" id="operators">
+        <button class="op-btn" data-op="+" aria-label="Pluss">+</button>
+        <button class="op-btn" data-op="−" aria-label="Minus">−</button>
+        <button class="op-btn" data-op="×" aria-label="Gange">×</button>
+        <button class="op-btn" data-op="÷" aria-label="Dele">÷</button>
+      </div>
+
+      <p class="message" id="message" role="status" aria-live="polite">Velg et tall for å starte.</p>
+
+      <div class="history-wrap">
+        <p class="history-title">Utregninger</p>
+        <ol class="history" id="history"></ol>
+      </div>
+
+      <div class="controls">
+        <button class="ctrl-btn" id="undoBtn">Angre</button>
+        <button class="ctrl-btn" id="resetBtn">Start på nytt</button>
+        <button class="ctrl-btn ctrl-btn--primary" id="finishBtn">Avslutt oppgave</button>
+      </div>
+
+    </section>
+
+    <footer class="scoreboard">
+      <span class="scoreboard-label">Poengsum:</span>
+      <span class="scoreboard-stars" id="totalStars">☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆</span>
+      <span class="scoreboard-count" id="totalCount">0 / 15</span>
+    </footer>
+
+  </main>
+
+  <p class="colophon">Egenutviklet øvingsspill inspirert av tallpuslespill av typen «finn måltallet» – bygget for utprøving av AI-støttet koding.</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
