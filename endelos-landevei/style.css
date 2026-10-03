@@ -119,6 +119,37 @@ body {
 }
 
 /* ---------------------------------------------------
+   Terningvalg
+--------------------------------------------------- */
+.terningvalg {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.terningvalg-knapp {
+  padding: 7px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.terningvalg-knapp:hover {
+  background: var(--gold-soft);
+}
+
+.terningvalg-knapp.active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ---------------------------------------------------
    Terninger
 --------------------------------------------------- */
 .terning-rad {
@@ -167,6 +198,62 @@ body {
   min-height: 1.3em;
   margin: 0 0 22px;
   text-align: center;
+}
+
+/* ---------------------------------------------------
+   Veien – tallrekken og løsningene
+--------------------------------------------------- */
+.vei-seksjon {
+  width: 100%;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 2px solid var(--paper-line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vei-mal {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0 0 12px;
+}
+
+.vei-historikk {
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.vei-historikk:empty {
+  display: none;
+}
+
+.vei-linje {
+  margin: 0;
+  padding: 6px 12px;
+  background: var(--paper);
+  border-radius: var(--radius-s);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.vei-melding {
+  text-align: center;
+  min-height: 1.4em;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+.vei-melding.error {
+  color: var(--red);
+  font-weight: 600;
 }
 
 /* ---------------------------------------------------

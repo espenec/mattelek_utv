@@ -29,12 +29,30 @@
 
     <section class="puzzle">
 
+      <div class="terningvalg" role="group" aria-label="Antall terninger">
+        <button type="button" class="terningvalg-knapp" data-antall="3">3 terninger</button>
+        <button type="button" class="terningvalg-knapp" data-antall="4">4 terninger</button>
+        <button type="button" class="terningvalg-knapp active" data-antall="5">5 terninger</button>
+      </div>
+
       <div class="terning-rad" id="terningRad" aria-live="polite" aria-label="Terningkast"></div>
 
       <p class="terning-tekst" id="terningTekst"></p>
 
       <div class="controls">
         <button class="ctrl-btn ctrl-btn--primary" id="kastBtn" type="button">Kast terningene</button>
+      </div>
+
+      <div class="vei-seksjon">
+        <p class="vei-mal">Neste tall: <span id="veiMaal">1</span></p>
+
+        <div class="vei-historikk" id="veiHistorikk"></div>
+
+        <p class="vei-melding" id="veiMelding" role="status" aria-live="polite"></p>
+
+        <div class="controls">
+          <button class="ctrl-btn" id="visLosningBtn" type="button">Vis neste tall</button>
+        </div>
       </div>
 
     </section>
