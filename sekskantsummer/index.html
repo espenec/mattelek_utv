@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sekskantregning – fire regnearter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav-link">Hjem</a>
+    <a href="../tallmal/index.html" class="site-nav-link">Tallmål</a>
+    <a href="../finn-feilen/index.html" class="site-nav-link">Finn feilen</a>
+    <a href="../brok-prosent/index.html" class="site-nav-link">Brøk/prosent</a>
+    <a href="../endelos-landevei/index.html" class="site-nav-link">Landeveien</a>
+    <a href="../terning-kort/index.html" class="site-nav-link">Terning/kort</a>
+    <a href="../terningspill/index.html" class="site-nav-link">Terningspill</a>
+    <a href="../sekskantsummer/index.html" class="site-nav-link active">Sekskanter</a>
+  </nav>
+
+  <header class="site-head">
+    <h1>Sekskantregning</h1>
+    <p class="tagline" id="oppgaveTekst">Finn de to tallene som til sammen blir tallet i midten.</p>
+  </header>
+
+  <main class="board">
+
+    <section class="valg" aria-label="Velg regneart og nivå">
+      <div class="valg-gruppe" role="group" aria-label="Regneart">
+        <span class="valg-etikett">Regneart</span>
+        <div class="valg-knapper">
+          <button type="button" class="valg-knapp active" data-regneart="addisjon" aria-pressed="true">+ Addisjon</button>
+          <button type="button" class="valg-knapp" data-regneart="subtraksjon" aria-pressed="false">− Subtraksjon</button>
+          <button type="button" class="valg-knapp" data-regneart="multiplikasjon" aria-pressed="false">× Multiplikasjon</button>
+          <button type="button" class="valg-knapp" data-regneart="divisjon" aria-pressed="false">÷ Divisjon</button>
+          <button type="button" class="valg-knapp" data-regneart="blandet" aria-pressed="false">Blandet</button>
+        </div>
+      </div>
+
+      <div class="valg-gruppe" role="group" aria-label="Nivå">
+        <span class="valg-etikett">Nivå</span>
+        <div class="valg-knapper">
+          <button type="button" class="valg-knapp active" data-nivaa="enkel" aria-pressed="true">Enkel</button>
+          <button type="button" class="valg-knapp" data-nivaa="middels" aria-pressed="false">Middels</button>
+          <button type="button" class="valg-knapp" data-nivaa="vanskelig" aria-pressed="false">Vanskelig</button>
+        </div>
+      </div>
+
+      <p class="valg-info" id="valgInfo"></p>
+    </section>
+
+    <div class="ring" id="ring" aria-label="Seks sekskanter"></div>
+
+    <p class="message" id="message" role="status" aria-live="polite"></p>
+
+    <div class="scoreboard">
+      <span>Løst: <strong id="losteTall">0 / 6</strong></span>
+      <span>Feil: <strong id="feilTall">0</strong></span>
+      <button type="button" class="ctrl-btn" id="nyRundeBtn">Ny runde</button>
+    </div>
+
+  </main>
+
+  <p class="colophon">Fire regnearter og tre nivåer. Å bytte regneart eller nivå starter en ny runde.</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

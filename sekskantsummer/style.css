@@ -1,0 +1,397 @@
+/* ---------------------------------------------------
+   Design tokens (samme som resten av mattelek-systemet)
+--------------------------------------------------- */
+:root {
+  --paper: #F1F5F2;
+  --paper-line: #C9D6D3;
+  --ink: #16323A;
+  --ink-soft: #4C6A6E;
+  --red: #D64550;
+  --red-soft: #F3D3D2;
+  --gold: #E7A93E;
+  --gold-soft: #FBE8C4;
+  --white: #FFFFFF;
+  --green: #2E7D5B;
+  --green-soft: #D7EBE1;
+
+  --font-display: "Fraunces", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --radius-s: 6px;
+  --radius-m: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-mono);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 60px;
+}
+
+.page {
+  width: 100%;
+  max-width: 640px;
+}
+
+/* ---------------------------------------------------
+   Site navigation
+--------------------------------------------------- */
+.site-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.site-nav-link {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding: 6px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.site-nav-link:hover {
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+
+.site-nav-link.active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ---------------------------------------------------
+   Header
+--------------------------------------------------- */
+.site-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.site-head h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------
+   Brett
+--------------------------------------------------- */
+.page { max-width: 760px; }
+
+.board {
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-m);
+  padding: 24px 20px 0;
+  overflow: hidden;
+}
+
+/* Valg av regneart og nivå */
+.valg {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.valg-gruppe { display: flex; flex-direction: column; gap: 6px; }
+
+.valg-etikett {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.valg-knapper { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.valg-knapp {
+  padding: 6px 13px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.valg-knapp:hover { background: var(--gold-soft); }
+.valg-knapp.active { background: var(--ink); color: var(--white); }
+
+.valg-info {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* Ringen: seks sekskanter rundt et tomt midtfelt.
+   Plasseringen er regnet ut for sekskanter med spiss opp,
+   i et område med sideforhold 533,2 : 511,8. */
+.ring {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 533.2 / 511.8;
+}
+
+.hex-wrap {
+  position: absolute;
+  width: 32.48%;
+}
+
+.hex-0 { left: 50.64%; top: 0; }
+.hex-1 { left: 67.52%; top: 30.46%; }
+.hex-2 { left: 50.64%; top: 60.92%; }
+.hex-3 { left: 16.88%; top: 60.92%; }
+.hex-4 { left: 0;      top: 30.46%; }
+.hex-5 { left: 16.88%; top: 0; }
+.hex-midt { left: 33.76%; top: 30.46%; }
+
+.hex-svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* ---------------------------------------------------
+   Sekskant
+--------------------------------------------------- */
+.hex-form {
+  fill: var(--white);
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.hex.lost .hex-form { fill: var(--green-soft); stroke: var(--green); }
+
+.mal-ring {
+  fill: var(--gold-soft);
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-dasharray: 6 5;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.hex.lost .mal-ring { fill: var(--white); stroke: var(--green); stroke-dasharray: none; }
+
+.mal-tekst {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--ink);
+  pointer-events: none;
+}
+
+/* Regnetegn ved siden av måltallet */
+.op-merke {
+  fill: var(--ink);
+}
+
+.op-tekst {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--white);
+  pointer-events: none;
+}
+
+.hex.lost .op-merke { fill: var(--green); }
+
+/* Større tall får mindre skrift */
+.mal-tekst.d3 { font-size: 22px; }
+.mal-tekst.d4 { font-size: 18px; }
+.felt-tekst.d3 { font-size: 16px; }
+
+/* Tallfeltene */
+.felt { cursor: pointer; outline: none; }
+
+.felt-sirkel {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  transition: fill 0.12s ease, stroke 0.12s ease;
+}
+
+.felt-tekst {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 19px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--ink);
+  pointer-events: none;
+  user-select: none;
+}
+
+.felt:hover .felt-sirkel { fill: var(--gold-soft); }
+
+.felt:focus-visible .felt-sirkel { stroke: var(--red); stroke-width: 4.5; }
+
+.felt.valgt .felt-sirkel { fill: var(--red); stroke: var(--red); }
+.felt.valgt .felt-tekst { fill: var(--white); }
+
+.felt.riktig .felt-sirkel { fill: var(--green); stroke: var(--green); }
+.felt.riktig .felt-tekst { fill: var(--white); }
+
+.felt.feil .felt-sirkel { fill: var(--red-soft); stroke: var(--red); }
+.felt.feil {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rist 0.4s ease-in-out;
+}
+
+@keyframes rist {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+/* Ferdig løst sekskant: de øvrige tallene tones ned */
+.hex.lost .felt { cursor: default; }
+.hex.lost .felt:not(.riktig) { opacity: 0.35; }
+.hex.lost .felt:not(.riktig):hover .felt-sirkel { fill: var(--paper); }
+
+/* Midtbrikken */
+.midt-form {
+  fill: none;
+  stroke: var(--paper-line);
+  stroke-width: 3;
+  stroke-dasharray: 8 7;
+  stroke-linejoin: round;
+}
+
+.midt-tall {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+  text-anchor: middle;
+  fill: var(--ink-soft);
+}
+
+.midt-etikett {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-anchor: middle;
+  fill: var(--ink-soft);
+}
+
+/* ---------------------------------------------------
+   Melding og poengstripe
+--------------------------------------------------- */
+.message {
+  text-align: center;
+  min-height: 1.4em;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 18px 0 18px;
+}
+
+.message.error { color: var(--red); font-weight: 600; }
+.message.success { color: var(--ink); font-weight: 600; }
+
+.scoreboard {
+  margin: 0 -20px;
+  border-top: 2px solid var(--ink);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  background: var(--paper);
+}
+
+.scoreboard strong { font-weight: 700; }
+
+.ctrl-btn {
+  margin-left: auto;
+  padding: 9px 18px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-s);
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.ctrl-btn:hover { background: var(--red); border-color: var(--red); }
+
+/* Colophon */
+.colophon {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 22px;
+}
+
+/* ---------------------------------------------------
+   Smale skjermer: sekskantene legges i to kolonner
+   slik at tallene fortsatt er store nok å trykke på.
+--------------------------------------------------- */
+@media (max-width: 600px) {
+  .board { padding: 16px 12px 0; }
+
+  .ring {
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .hex-wrap { position: static; width: 100%; }
+  .hex-midt { display: none; }
+
+  .scoreboard { margin: 0 -12px; padding: 12px 16px; gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .felt.feil { animation: none; }
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
