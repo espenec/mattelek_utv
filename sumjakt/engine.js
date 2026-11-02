@@ -1,0 +1,11 @@
+(function(root){
+'use strict';
+function shuffle(items){const out=items.slice();for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
+function solutions(nums){const found=[];for(let i=0;i<nums.length;i++)for(let j=i+1;j<nums.length;j++){const k=nums.indexOf(nums[i]+nums[j]);if(k>=0&&k!==i&&k!==j)found.push([i,j,k]);}return found;}
+function generate(max){if(![20,50,100].includes(max))throw new Error('Ukjent nivå');for(let attempt=0;attempt<500;attempt++){const a=1+Math.floor(Math.random()*(max-2)),b=1+Math.floor(Math.random()*(max-a));if(a===b)continue;const nums=[a,b,a+b];for(const n of shuffle(Array.from({length:max},(_,i)=>i+1))){if(nums.includes(n))continue;nums.push(n);if(solutions(nums).length!==1)nums.pop();if(nums.length===9)return shuffle(nums);}}
+// Guaranteed valid fallback: one small addend and eight upper-range numbers.
+const scale=max===20?1:max===50?2:5;return shuffle([8,11,12,13,14,15,16,17,19].map(n=>n*scale));}
+function batch(max){const boards=[],seen=new Set();for(let tries=0;boards.length<9&&tries<1000;tries++){const nums=generate(max),key=nums.slice().sort((a,b)=>a-b).join(',');if(!seen.has(key)){seen.add(key);boards.push({nums,chosen:[],solved:false,feedback:''});}}if(boards.length!==9)throw new Error('Kunne ikke lage ni ulike oppgaver');return boards;}
+function choose(board,index,operation='add'){if(!['add','sub'].includes(operation))throw new Error('Ukjent regneart');if(board.solved||!Number.isInteger(index)||index<0||index>8)return 'ignored';if(board.chosen.length===3)board.chosen=[];board.feedback='';const old=board.chosen.indexOf(index);if(old!==-1){board.chosen.splice(old,1);return 'removed';}board.chosen.push(index);if(board.chosen.length<3)return 'selected';const [a,b,c]=board.chosen.map(i=>board.nums[i]);const symbol=operation==='sub'?'−':'+';board.solved=(operation==='sub'?a-b:a+b)===c;board.feedback=board.solved?`${a} ${symbol} ${b} = ${c}. Riktig!`:`${a} ${symbol} ${b} er ikke ${c}. Prøv igjen.`;return board.solved?'correct':'wrong';}
+const api={shuffle,solutions,generate,batch,choose};root.Sumjakt=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
