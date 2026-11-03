@@ -327,7 +327,67 @@ label:hover>span {
   margin-bottom:18px;
   color:var(--green)
 }
-.complete strong{display:block;font:600 1.4rem var(--display);margin-bottom:5px}.complete span{font-size:.78rem}footer{text-align:center;color:var(--soft);font-size:.7rem;line-height:1.6;margin-top:30px}button:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid var(--red);outline-offset:3px}.number:focus-visible{outline-offset:-4px;z-index:1}.primary:focus-visible{outline-color:var(--ink)}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}@media(max-width:800px){.boards{grid-template-columns:repeat(2,minmax(0,1fr))}.setup{grid-template-columns:1fr;gap:13px}.instructions{display:flex;gap:18px;flex-wrap:wrap}.number{font-size:1.6rem}}@media(max-width:480px){body{padding:22px 14px 30px}.boards{grid-template-columns:1fr;max-width:340px;margin:auto}.setup{padding:17px}.instructions{display:block}.instructions p{font-size:.69rem}.hint{font-size:.64rem}.toolbar{gap:10px}.primary{font-size:.7rem;padding:12px}.progress{min-width:100px}.progress>span{font-size:.72rem}.tagline{font-size:.77rem!important}.board{padding:19px}.number{font-size:1.7rem}.feedback{font-size:.72rem}.state{font-size:.65rem}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.complete strong {
+  display:block;
+  font:600 1.4rem var(--display);
+  margin-bottom:5px
+}
+.complete span {
+  font-size:.78rem
+}
+footer {
+  text-align:center;
+  color:var(--soft);
+  font-size:.7rem;
+  line-height:1.6;
+  margin-top:30px
+}
+button:focus-visible,a:focus-visible,input:focus-visible+span {
+  outline:3px solid var(--red);
+  outline-offset:3px
+}
+.number:focus-visible {
+  outline-offset:-4px;z-index:1
+}
+.primary:focus-visible {
+  outline-color:var(--ink)
+}
+[hidden] {
+  display:none!important
+}.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap
+}
+@media(max-width:800px) {.boards {
+  grid-template-columns:repeat(2,minmax(0,1fr))}
+.setup {
+  grid-template-columns:1fr;
+  gap:13px
+}
+.instructions {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap
+}
+.number{font-size:1.6rem}}@media(max-width:480px){body{padding:22px 14px 30px}
+.boards{grid-template-columns:1fr;max-width:340px;margin:auto}
+.setup{padding:17px}
+.instructions{display:block}
+.instructions p{font-size:.69rem}
+.hint{font-size:.64rem}
+.toolbar{gap:10px}
+.primary{font-size:.7rem;padding:12px}
+.progress{min-width:100px}
+.progress>span{font-size:.72rem}
+.tagline{font-size:.77rem!important}
+.board{padding:19px}
+.number{font-size:1.7rem}
+.feedback{font-size:.72rem}
+.state{font-size:.65rem}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* Keep all nine puzzles in one square, including on narrow screens. */
 .boards-scroll{overflow-x:auto;padding:4px 4px 12px;margin:0 -4px;}
