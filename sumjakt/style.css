@@ -10,7 +10,7 @@
   --green:#246849;
   --green-soft:#E5F2E7;
   --display:'Fraunces',Georgia,serif;
-  --mono:'IBM Plex Mono',monospace}*{box-sizing:border-box};
+  --mono:'IBM Plex Mono',monospace}*{box-sizing:border-box;
   --white: #FFFFFF;
   --font-mono: var(--mono);
   --ink-soft: var(--soft);
