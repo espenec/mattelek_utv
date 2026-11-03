@@ -14,7 +14,7 @@
   --white: #FFFFFF;
   --font-mono: var(--mono);
   --ink-soft: var(--soft);
-
+}
 body {
   margin:0;
   padding:32px 18px 36px;
