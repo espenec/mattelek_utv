@@ -1,0 +1,60 @@
+:root {
+  --paper: #F1F5F2;
+  --paper-line: #C9D6D3;
+  --ink: #16323A;
+  --ink-soft: #4C6A6E;
+  --red: #D64550;
+  --red-soft: #F3D3D2;
+  --gold: #E7A93E;
+  --gold-soft: #FBE8C4;
+  --white: #FFFFFF;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --radius-s: 6px;
+  --radius-m: 10px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-mono);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--paper-line) 1px, transparent 1px), linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  min-height: 100vh;
+  padding: 36px 16px 60px;
+}
+.page { width: 100%; max-width: 720px; margin: 0 auto; }
+.site-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 34px; }
+.site-nav-link {
+  font-family: var(--font-mono); font-weight: 600; font-size: .8rem;
+  text-decoration: none; color: var(--ink-soft); padding: 6px 14px;
+  border: 2px solid var(--ink); border-radius: 999px; background: var(--white);
+  transition: background .12s ease, color .12s ease;
+}
+.site-nav-link:hover { background: var(--gold-soft); color: var(--ink); }
+.site-nav-link.active, .site-nav-link.active:hover { background: var(--ink); color: var(--white); }
+.site-head { text-align: center; margin-bottom: 28px; }
+.eyebrow { color: var(--ink-soft); font-size: .65rem; font-weight: 600; letter-spacing: 1.8px; margin: 0 0 9px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 7vw, 3.6rem); margin: 0; letter-spacing: -.01em; }
+.tagline { margin: 8px 0 0; color: var(--ink-soft); font-size: .85rem; line-height: 1.7; }
+.intro { background: var(--white); border: 2px solid var(--ink); border-radius: var(--radius-m); padding: 20px 24px; margin-bottom: 30px; }
+.intro p { margin: 0; font-size: .82rem; line-height: 1.8; }
+.intro .steps { border-top: 1px solid var(--paper-line); padding-top: 13px; margin-top: 15px; color: var(--ink-soft); font-size: .65rem; font-weight: 600; letter-spacing: .6px; }
+.steps span { color: var(--red); padding: 0 8px; }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+h2 { margin: 0; font-family: var(--font-display); font-size: 1.5rem; }
+.count { font-size: .7rem; color: var(--ink-soft); }
+.prosjekt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.prosjekt-kort { display: flex; flex-direction: column; gap: 12px; padding: 22px 20px; border: 2px solid var(--ink); border-radius: var(--radius-m); background: var(--white); text-decoration: none; color: var(--ink); transition: background .12s ease, transform .12s ease; }
+.prosjekt-kort:hover { background: var(--gold-soft); transform: translateY(-3px); }
+.kort-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .62rem; color: var(--ink-soft); }
+.badge { padding: 4px 6px; background: var(--gold-soft); border: 1px solid var(--gold); border-radius: 4px; color: var(--ink); font-size: .6rem; font-weight: 600; letter-spacing: .4px; }
+.prosjekt-navn { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; }
+.prosjekt-beskrivelse { font-size: .8rem; color: var(--ink-soft); line-height: 1.65; flex: 1; }
+.prosjekt-lenke { font-size: .76rem; font-weight: 700; color: #B52D39; margin-top: 4px; }
+.coming { margin: 22px 0 0; color: var(--ink-soft); font-size: .75rem; line-height: 1.6; }
+.colophon { text-align: center; color: var(--ink-soft); font-size: .7rem; line-height: 1.6; margin-top: 45px; }
+a:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+@media (max-width: 560px) { body { padding-top: 24px; } .prosjekt-grid { grid-template-columns: 1fr; } .intro { padding: 18px; } .site-nav { gap: 6px; margin-bottom: 27px; } .site-nav-link { font-size: .7rem; padding: 6px 10px; } .steps span { padding: 0 3px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
